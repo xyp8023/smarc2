@@ -1,0 +1,12 @@
+<launch>
+
+    <arg name="namespace" default="sam"/>
+    
+    <group>
+    <push-ros-namespace namespace="$(var namespace)"/>
+            <node name="pid_controller_node" pkg="ros2_python_examples" exec="pid_controller_node.py" output="screen">
+                <!-- no params for this node-->
+            </node>
+    </group>
+
+</launch>
