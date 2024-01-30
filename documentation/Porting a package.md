@@ -4,7 +4,6 @@ Here, they will be expanded and itemized for ease of reading.
 
 
 
-
 ## Step 0: Install ROS-Humble
 We use ROS Humble, since it is the current LTS version.
 This requires Ubuntu 22.04 at least.
@@ -39,12 +38,10 @@ You might need to change this if you ever need multiple workspaces and don't wan
 
 
 
-
 ## Step 1: At least skim [the official migration guide](https://docs.ros.org/en/humble/How-To-Guides/Migrating-from-ROS1.html)
 The [official guides](https://docs.ros.org/en/humble/How-To-Guides/Migrating-from-ROS1.html) are already written in an almost step-by-step fashion, but it can be daunting to go through _all_ of it in one go without guidance.
 Having a look at it will allow you to quickly go back and forth as you progress.
 I have tried all the automatic tools mentioned here, but none worked for me.
-
 
 
 
@@ -81,6 +78,8 @@ In my experience, the following replacements make the bulk of the edits you need
 - `<group ns=...` --> `<group .../> <push-ros-namespace .../>` (The `ns` argument is separated from the `group` tag into its own tag `push-ros-namespace` which works in the same way.)
 
 You can use [my notes](./media/SAM%20Humble%20Port.png) to see what I did to fix many other common errors you might face, rather than googling.
+
+**Python:** Another change is how Python nodes are handled. You can not just use the filename to launch a node, you must first define the executable in `setup.py` and use the name you gave the executable there in the launch file, just like you would do for C++ nodes.
 
 ### Params
 This is also the time to think about if all these parameters you are passing (particularly the topics, see [Topics.msg](../messages/README.md#topicsmsg)) are needed. 
