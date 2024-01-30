@@ -62,10 +62,13 @@ If you have this, this is where most of the changes are.
 Check [the ported package](../examples/sam_basic_controllers/CMakeLists.txt) to see how both C++ and Python stuff is defined now.
 
 #### Setup.py
-It might be the case that you don't have a CMakeLists.txt file for your pure-python package. You should instead have `setup.py`.
+It should be the case that you don't have a CMakeLists.txt file for your pure-python package. You should instead have `setup.py`.
 This is a simpler file to modify, with basically only a list of files that you want installed and where they should go.
 If you compare [the example here](../gui/smarc_nodered/setup.py) to your auto-generated one, you will see that you simply need to tell setuptools to copy things around.
-Any launch files, config files, executable scripts and such should be listed here and placed under `share/{package_name}/your_folder/your_file`.
+
+**Launch, config etc:** Any launch files, config files and such should be listed under `data_files=...`. 
+
+**Executables:** These need to go under `entry_points=...`. These are the things that will be runnable using `ros2 run` and from launch files. Notice that the executable names do not need to match the file name, function name, or aynthing really, it is just an identifier that you are giving to the fully-qualified path of a specific function.
 
 
 ## Step 3: Launch files

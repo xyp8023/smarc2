@@ -8,7 +8,7 @@ See [the ported sam_basic_controllers package](../examples/sam_basic_controllers
 
 
 # Creating a new ROS2 package for SMaRC2
-Navigate to where the new package will live, and use the command `ros2 pkg create --description <ONE LINE DESC> --license mit --build-type {ament_cmake, ament_python} --maintainer-email <YOUR-EMAIL> --maintainer-name <YOUR-NAME>`
+Navigate to where the new package will live, and use the command `ros2 pkg create --description <ONE LINE DESC> --license mit --build-type {ament_cmake, ament_python} --maintainer-email <YOUR-EMAIL> --maintainer-name <YOUR-NAME> <PACKAGE-NAME>`
 
 If your package is C++, use `ament_cmake`.
 
