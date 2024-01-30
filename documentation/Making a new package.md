@@ -24,6 +24,7 @@ If your package is _pure_ python, then use `ament_python`.
 Pure python packages do not have `CMakeLists.txt`, instead they use `setup.py` to define where files should be installed. 
 If something is not found, always start checking if that something is told where to go when building in `setup.py`.
 Check out the [ros2_python_examples](../examples/ros2_python_examples/) package.
+Also check [the python imports guide](./Python%20imports.md) if you're coming from ROS1.
 
 
 If your package is a mix of C++ and python (**avoid this in the first place!**) then use `ament_cmake` and modify the `package.xml` and `CMakeLists.txt` to have `ament_cmake_python` manually.

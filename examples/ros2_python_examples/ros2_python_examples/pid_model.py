@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 
-from .sam_view import SAMView
+# Dirty dirty workaround to how ROS2 installs things
+# while also allowing running this file from the command line
+# without ROS-stuff.
+try:
+    from .sam_view import SAMView # for ROS2
+except:
+    from sam_view import SAMView # for terminal running
 
 import numpy as np
 

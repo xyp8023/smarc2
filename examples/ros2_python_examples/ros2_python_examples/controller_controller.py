@@ -7,7 +7,15 @@ import tf2_ros
 from rclpy.node import Node
 from tf_transformations import euler_from_quaternion
 
-from .pid_model import PIDModel
+# Dirty dirty workaround to how ROS2 installs things
+# while also allowing running this file from the command line
+# without ROS-stuff.
+# Obviously you can omit one of these if its not needed...
+# Only needed for "local" files. 
+try:
+    from .pid_model import PIDModel # for ROS2
+except:
+    from pid_model import PIDModel # for non-ros
 
 class ControllerController:
     """

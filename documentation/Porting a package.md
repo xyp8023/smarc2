@@ -68,7 +68,6 @@ If you compare [the example here](../gui/smarc_nodered/setup.py) to your auto-ge
 Any launch files, config files, executable scripts and such should be listed here and placed under `share/{package_name}/your_folder/your_file`.
 
 
-
 ## Step 3: Launch files
 There are quite a few changes to be made here.
 In my experience, the following replacements make the bulk of the edits you need to make:
@@ -94,9 +93,11 @@ Yaml parameter files also allow you to use ONE file for many nodes' parameters. 
 ## Step 4: Actual code
 **This is the perfect time to do some clean-up!**
 
-Please check [the model-view-controller design](./media/ROS2%20Node%20Design.png) and implement it in your new and shiny ROS2 package, such that we reduce the likelihood of ending up in the same spaghetti we were in ROS1 ;)
+**Recommended design pattern:** Please check [the model-view-controller design](./media/ROS2%20Node%20Design.png) and implement it in your new and shiny ROS2 package, such that we reduce the likelihood of ending up in the same spaghetti we were in ROS1 ;)
 
-[This minimal ros2 example](../examples/ros2_python_examples/ros2_python_examples/) should provide you the general idea of how and why. It is heavily commented, with multiple different examples of doing the same thing for you to pick and choose.
+**Example:** [This minimal ros2 example](../examples/ros2_python_examples/ros2_python_examples/) should provide you the general idea of how and why. It is heavily commented, with multiple different examples of doing the same thing for you to pick and choose.
+
+**Python imports:** Python3 under ROS2 needs some amount of extra care when importing things. Read [this guide here](./Python%20imports.md) to see how/why/what.
 
 The official [python guide](https://docs.ros.org/en/humble/How-To-Guides/Migrating-from-ROS1/Migrating-Python-Packages.html) and [cpp guide](https://docs.ros.org/en/humble/How-To-Guides/Migrating-from-ROS1/Migrating-CPP-Packages.html) are all very clear as well.
 
