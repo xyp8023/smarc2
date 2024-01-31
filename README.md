@@ -9,6 +9,9 @@ Most of the dependendencies can be installed with rosdep: `rosdep install -i --f
 High-level constructs like action servers and behaviour trees.
 These usually rely on many other packages to function.
 
+## Docker
+Docker-related stuff. Like dockerfiles and other such artifacts.
+
 ## Documentation
 A good starting point if you would like to start writing some code to run on a robot.
 Check [this basic tutorial on creating a package](./documentation/Making%20a%20new%20package.md) to start your journey into Ros Humble.

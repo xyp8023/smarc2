@@ -1,0 +1,6 @@
+FROM ros:humble-ros-base-jammy
+
+RUN mkdir -p colcon_ws/src \
+&&  cd colcon_ws/src \
+&&  git clone https://github.com/KKalem/smarc2
+
