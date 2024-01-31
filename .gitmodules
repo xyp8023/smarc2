@@ -3,7 +3,8 @@
 	url = https://github.com/KKalem/ROS-TCP-Endpoint
 [submodule "external/mqtt_bridge"]
 	path = external/mqtt_bridge
-	url = https://github.com/groove-x/mqtt_bridge/tree/ros2
+	url = https://github.com/groove-x/mqtt_bridge
+	branch = ros2
 [submodule "simulation/SMARCUnityHDRP"]
 	path = simulation/SMARCUnityHDRP
 	url = https://github.com/smarc-project/SMARCUnityHDRP
