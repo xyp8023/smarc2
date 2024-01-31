@@ -49,6 +49,9 @@ SAM's hardware-specific packages.
 It is likely that these packages will not compile or run on anything but the real SAM hardware.
 **These should be set up as submodules.**
 
+## Scripts
+Where scripts for ease-of-use are stored.
+
 ## Simulation
 This is where our simulation-related packages live.
 If something is required ONLY for the sim and not anywhere else, that thing should be in here.
