@@ -9,9 +9,21 @@ RUN mkdir -p colcon_ws/src \
 
 # make colcon behave
 RUN mkdir /home/.colcon/ \
-&&  cp /home/colcon_ws/smarc2/docker/defaults.yaml /home/.colcon/
+&&  cp /home/colcon_ws/src/smarc2/docker/defaults.yaml /home/.colcon/
 
+WORKDIR /home/colcon_ws/src/smarc2
+
+# get the submodules needed for core
+RUN scripts/get-submodules.sh external
+
+# install deps
+WORKDIR /home/colcon_ws
+RUN ./src/smarc2/scripts/rosdep_install_from_src.sh
+
+# build
 RUN colcon build
 
+# test
+RUN colcon test
 
 

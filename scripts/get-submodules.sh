@@ -6,5 +6,5 @@ dirs=$( cat .gitmodules | grep "path = $1")
 dirs=${dirs//"path = "/}
 # then we can feed this to git submodule~
 echo "Updating submodules in: $dirs"
-git submodule update --remote $dirs
+git submodule update --remote --init $dirs
 echo "Done"

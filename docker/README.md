@@ -10,6 +10,8 @@ Using sudo all the time is annoying, follow [this guide](https://docs.docker.com
 ## Cheatsheet
 **Build image from dockerfile:** `docker build - -t <name>/<tag> < <path/to/dockerfile>`
 
+Add `--no-cache` to make it build from scratch.
+
 **Check your images:** `docker images`
 
 An image is a _description_ of what will exist in a container when it is run. Basically a "class", doesn't do anything until its instantiated with its constructor.
@@ -26,7 +28,7 @@ A container is an instance of an image. It does things, has files and such. Ther
 * To share a folder between host and container: `--mount type=bind,source=<folder path on host>,target=<folder path on container>` (you can use `"$pwd"` in the host path part)
 * To make container interactive (so that it doesn't just run and quit): add `-it` flag to `run`, or `exec`
 
-**Start a container:** `docker start <container_name>`
+**Start a container that was run before:** `docker start <container_name>`
 
 Example: Run bash in a container that is already started: `docker exec -it <container_name> /bin/bash`
 
