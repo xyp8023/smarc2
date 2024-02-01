@@ -6,8 +6,17 @@ This folder contains documentation that applies to larger concepts and construct
 - Shared images, pdfs etc.
 
 
+**Installing for the first time?** [I gotchu fam](./Installing%20ROS2.md)
 
-Need a new package? Check [this mini tutorial](./Making%20a%20new%20package.md) out.
+**Need a new package?** Check [this mini tutorial](./Making%20a%20new%20package.md) out.
+
+**Porting a package?** Start [with this guide.](./Porting%20a%20package.md)
+
+**Python imports being annoying?** [Check this out.](./Python%20imports.md)
+
+**Git submodules are not a kind of food!** [They are useful](./Working%20with%20submodules.md)
+
+**READMEs, they are _nice_ no?** [Write some nice ones](./Writing%20a%20nice%20README.md)
 
 
 ## Media 

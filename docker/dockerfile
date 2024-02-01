@@ -1,6 +1,17 @@
 FROM ros:humble-ros-base-jammy
 
+WORKDIR /home
+
+# clone the base smarc2 dir and make the colcon ws while at it
 RUN mkdir -p colcon_ws/src \
 &&  cd colcon_ws/src \
 &&  git clone https://github.com/KKalem/smarc2
+
+# make colcon behave
+RUN mkdir /home/.colcon/ \
+&&  cp /home/colcon_ws/smarc2/docker/defaults.yaml /home/.colcon/
+
+RUN colcon build
+
+
 
