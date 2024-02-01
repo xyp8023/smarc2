@@ -8,7 +8,7 @@ We use docker containers to run tests and such.
 Using sudo all the time is annoying, follow [this guide](https://docs.docker.com/engine/install/linux-postinstall/)
 
 ## Cheatsheet
-**Build image from dockerfile:** `docker build - -t <name>/<tag> < <path/to/dockerfile>`
+**Build image from dockerfile:** `docker build - -t <name>:<tag> < <path/to/dockerfile>`
 
 Add `--no-cache` to make it build from scratch.
 

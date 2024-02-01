@@ -31,13 +31,13 @@ RUN scripts/get-submodules.sh external
 
 # install deps
 WORKDIR /home/colcon_ws
-RUN ./src/smarc2/scripts/rosdep_install_from_src.sh
+RUN rosdep update \
+&&  ./src/smarc2/scripts/rosdep_install_from_src.sh
 
 # no bashrc in dockerfiles, so we source and build in the same run
 RUN source /opt/ros/humble/setup.bash \
 &&  colcon build
 
-# source /home/colcon_ws/install/setup.bash
 
 # this sources the setup.bash by default
 ENTRYPOINT [ "/ros_entrypoint.sh" ] 
