@@ -16,9 +16,12 @@ RUN pip install --no-input setuptools==58.2.0
 WORKDIR /home
 
 # clone the base smarc2 dir and make the colcon ws while at it
-RUN mkdir -p colcon_ws/src \
-&&  cd colcon_ws/src \
-&&  git clone https://github.com/KKalem/smarc2
+RUN mkdir -p colcon_ws/src
+
+# use an arg to force docker to build from here, even with cache enabled.
+# useful to git pull every build!
+ARG DATE_STAMP
+RUN cd colcon_ws/src && git clone https://github.com/KKalem/smarc2
 
 # make colcon behave
 RUN mkdir /home/.colcon/ \
