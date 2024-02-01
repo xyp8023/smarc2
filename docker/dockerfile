@@ -1,5 +1,18 @@
 FROM ros:humble-ros-base-jammy
 
+# we want the familiar bash for everything, not sh.
+# this makes source-ing work
+SHELL ["/bin/bash", "-c"]
+
+# update things
+RUN apt update && apt upgrade -y
+
+# package managers and such...
+RUN apt install -y python3-pip apt-utils ros-dev-tools
+
+# this version of setuptools doesn't have the annoying warnings...
+RUN pip install --no-input setuptools==58.2.0
+
 WORKDIR /home
 
 # clone the base smarc2 dir and make the colcon ws while at it
@@ -20,10 +33,13 @@ RUN scripts/get-submodules.sh external
 WORKDIR /home/colcon_ws
 RUN ./src/smarc2/scripts/rosdep_install_from_src.sh
 
-# build
-RUN colcon build
+# no bashrc in dockerfiles, so we source and build in the same run
+RUN source /opt/ros/humble/setup.bash \
+&&  colcon build
 
-# test
-RUN colcon test
+# source /home/colcon_ws/install/setup.bash
+
+# this sources the setup.bash by default
+ENTRYPOINT [ "/ros_entrypoint.sh" ] 
 
 

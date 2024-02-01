@@ -30,6 +30,8 @@ A container is an instance of an image. It does things, has files and such. Ther
 
 **Start a container that was run before:** `docker start <container_name>`
 
+**Attach to a container that is alredy running:** `docker attach <container_name>`
+
 Example: Run bash in a container that is already started: `docker exec -it <container_name> /bin/bash`
 
 
