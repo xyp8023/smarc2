@@ -39,12 +39,7 @@ Example: Run bash in a container that is already started: `docker exec -it <cont
 
 ## WIP
 
-Basics:
-1) Build from ros:humble
-2) Clone this repo in
-3) install deps with the script
-4) colcon build
-5) colcon test
+
 
 Auto-generated docs:
 1) Build from above
