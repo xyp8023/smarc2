@@ -2,7 +2,9 @@
 This is the repository of packages for ROS Humble.
 Each of the following directories also include more detailed readmes within.
 
-Most of the dependendencies can be installed with rosdep: `rosdep install -i --from-path src --rosdistro humble -y --skip-keys="sam_* lolo_* smarc_*`.
+Most of the dependendencies can be installed with rosdep: `rosdep install -i --from-path src --rosdistro humble -y --skip-keys="sam_* lolo_* smarc_*`, which you can also find as a script [in the scripts folder here](/scripts/rosdep_install_from_src.sh)
+
+
 
 
 ## Behaviours
@@ -62,5 +64,7 @@ Similar to Sam, **these are submodules.**
 From the perspective of ROS, simulation is just another robot.
 
 
-
+## Slam
+Packages related to localization and mapping. 
+Probably could be split further within this folder.
 
