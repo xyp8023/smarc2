@@ -4,6 +4,16 @@ Each of the following directories also include more detailed readmes within.
 
 Most of the dependendencies can be installed with rosdep: `rosdep install -i --from-path src --rosdistro humble -y --skip-keys="sam_* lolo_* smarc_*`, which you can also find as a script [in the scripts folder here](/scripts/rosdep_install_from_src.sh)
 
+> Add more directories as needed.
+>
+> The main consideration is: where will this run?
+> - Make submodule ([see docs](./documentation/Working%20with%20submodules.md)) if:
+>   - It only runs on _a specific setup_, like ONLY the sam harware or ONLY the sim.
+>   - It is a single-use "I just need this data once and then I will forget about it" kind of thing
+> - Make a normal dir if:
+>   - It can be run anywhere. Like localization and control stuffs.
+>   - It does not do anything until manually invoked. Like GUI stuff.
+
 
 
 
@@ -19,6 +29,7 @@ A good starting point if you would like to start writing some code to run on a r
 Check [this basic tutorial on creating a package](./documentation/Making%20a%20new%20package.md) to start your journey into Ros Humble.
 
 Images, diagrams, pdfs, text that describe larger concepts that apply to multiple packages.
+
 Tutorials and such also go here.
 
 Individual packages should have their own documentation in their readme files.
