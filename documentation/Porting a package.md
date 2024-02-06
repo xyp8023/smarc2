@@ -94,8 +94,8 @@ At the very least, your readme should contain:
 ## Step 6: Tests
 Since you probably had to change a pile of stuff, and even (**hopefully**) changed the architecture a little, this is the perfect opportunity to write some tests for your stuff!
 
-Again, [this minimal ros2 example](../examples/ros2_python_examples/tests) is relevant. 
-[test_testing.py](../examples/ros2_python_examples/tests/test_testing.py) shows the absolute minimum examples of two tests, one that fails and one that passes all the time.
+Again, [this minimal ros2 example](../examples/ros2_python_examples/test) is relevant. 
+[test_testing.py](../examples/ros2_python_examples/test/test_testing.py) shows the absolute minimum examples of two tests, one that fails and one that passes all the time.
 
 
 > TODO(Ozer) integration tests

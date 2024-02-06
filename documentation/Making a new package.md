@@ -69,7 +69,7 @@ Ignore the `packages-select` part to run _all_ tests in the colcon workspace.
 ### Python
 Follow [the ROS-Humble tutorial](https://docs.ros.org/en/humble/Tutorials/Intermediate/Testing/Python.html)
 
-[ros2_python_examples](../examples/ros2_python_examples/tests/) has one file that has 2 tests, one that will always fail and one that will always succeed. 
+[ros2_python_examples](../examples/ros2_python_examples/test/) has one file that has 2 tests, one that will always fail and one that will always succeed. 
 Notice the lack of auto-generated `flake8`, `pep` and `copyright` tests.
 These are usually a little too strict about formatting and such, so either learn to modify them to check the things you care about or simply remove them to reduce the nagging.
 
