@@ -161,4 +161,16 @@ for p_name, launchfiles in packages_launches:
 
 # finally, export the findings as JSON for later rendering with a different script
 with open("smarc2_structure.json", "w") as f:
-    json.dump(structure, f)
+    # we also want to keep track of the git commit hash to avoid running this long
+    # script if the head is on the same commit
+    res = subprocess.run(["git", "log", "-1"], stdout=subprocess.PIPE)
+    # output is like
+    # commit <hash> (stuff)
+    # Author: ...
+    # Date: ...
+    # so the hash is line 0, word 1
+    commit_hash = res.stdout.decode().split("\n")[0].split(" ")[1]
+    file = {"hash":commit_hash,
+            "created":int(time.time()),
+            "structure":structure}
+    json.dump(file, f)
