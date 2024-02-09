@@ -13,6 +13,16 @@ where `foldername` is a folder (or its first few characters, like `ext` for `ext
 
 Example: `./scipts/get-submodules.sh ext` will update all submodules in the folder `smarc2/external`. `./scripts/get-submodules.sh sim` will do the same for `smarc2/simulation`.
 
+### launch_everything.py
+Just run from the command line, in `/smarc2`.
+
+This script will discover all launch files present within the `smarc2` repo, launch them one by one and document their nodes and their topics etc. into a json file....
+
+### render_strcuture.py
+....which this script will read and produce a markdown file from the json that is human readable.
+It will also link the launches and packages to their folders in the repo for easy access.
+
+
 ### rosdep_install_from_src.sh
 A single line to install all the dependencies in the `src` directory that aren't sam- lolo- or smarc- named.
 
