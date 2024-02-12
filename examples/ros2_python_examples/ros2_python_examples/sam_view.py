@@ -20,20 +20,18 @@ class SAMView:
     If needed, you can extend _this_ class with one that also writes the control
     inputs to file, to plot or something as well!
     """
-    def __init__(self, node: Node, default_robot_name="sam0"):
+    def __init__(self, node: Node):
         # bunch of topics to publish to
-        def defaultize(topic: str):
-            return f"/{default_robot_name}/{topic}"
         
         # lets actually use private variable notations this time around eh?
         # ROS2 introduces a QoS setting to publishing and subsciribing(optional)
         # that might be of use later, but for this simple example, we just set
         # a default value of "10" which more or less mimics ROS1
-        self._vbs_pub = node.create_publisher(PercentStamped, defaultize(SamTopics.VBS_CMD_TOPIC), 10)
-        self._lcg_pub = node.create_publisher(PercentStamped, defaultize(SamTopics.LCG_CMD_TOPIC), 10)
-        self._rpm1_pub = node.create_publisher(ThrusterRPM, defaultize(SamTopics.THRUSTER1_CMD_TOPIC), 10)
-        self._rpm2_pub = node.create_publisher(ThrusterRPM, defaultize(SamTopics.THRUSTER2_CMD_TOPIC), 10)
-        self._thrust_vector_pub = node.create_publisher(ThrusterAngles, defaultize(SamTopics.THRUST_VECTOR_CMD_TOPIC), 10)
+        self._lcg_pub = node.create_publisher(PercentStamped, SamTopics.LCG_CMD_TOPIC, 10)
+        self._vbs_pub = node.create_publisher(PercentStamped, SamTopics.VBS_CMD_TOPIC, 10)
+        self._rpm1_pub = node.create_publisher(ThrusterRPM, SamTopics.THRUSTER1_CMD_TOPIC, 10)
+        self._rpm2_pub = node.create_publisher(ThrusterRPM, SamTopics.THRUSTER2_CMD_TOPIC, 10)
+        self._thrust_vector_pub = node.create_publisher(ThrusterAngles, SamTopics.THRUST_VECTOR_CMD_TOPIC, 10)
 
         self._t1_msg = ThrusterRPM()
         self._t2_msg = ThrusterRPM()

@@ -1,3 +1,7 @@
+import numpy as np
+
+
+
 # This function definitely needed to be here and could have been put elsewhere /s
 # Here to be an example of importing from submodules in python.
 
