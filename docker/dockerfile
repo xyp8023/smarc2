@@ -8,12 +8,13 @@ SHELL ["/bin/bash", "-c"]
 RUN apt update && apt upgrade -y
 
 # package managers and such...
-RUN apt install -y python3-pip apt-utils ros-dev-tools
+RUN apt install -y python3-pip apt-utils ros-dev-tools unzip
 
 # this version of setuptools doesn't have the annoying warnings...
 RUN pip install --no-input setuptools==58.2.0
 
 WORKDIR /home
+
 
 # clone the base smarc2 dir and make the colcon ws while at it
 RUN mkdir -p colcon_ws/src
@@ -32,6 +33,9 @@ WORKDIR /home/colcon_ws/src/smarc2
 # get the submodules needed for core
 RUN scripts/get-submodules.sh external
 
+# get the latest compiled binary of the unity sim
+RUN scripts/get_latest_unity_standard.sh
+
 # install deps
 WORKDIR /home/colcon_ws
 RUN rosdep update \
@@ -40,6 +44,7 @@ RUN rosdep update \
 # no bashrc in dockerfiles, so we source and build in the same run
 RUN source /opt/ros/humble/setup.bash \
 &&  colcon build
+
 
 
 # this sources the setup.bash by default
