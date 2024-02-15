@@ -68,6 +68,7 @@ cd src/smarc2/simulation/binaries/SMaRCUnityStandard
 docker ps
 # find the name of the running container
 docker exec -it <container_name> /bin/bash
+source install/setup.bash
 cd src/smarc2/scripts
 ./unity_ros_bridge.sh
 ```
@@ -75,6 +76,7 @@ cd src/smarc2/scripts
 #### Terminal 3
 ```bash
 docker exec -it <container_name> /bin/bash
+source install/setup.bash
 ros2 topic list
 # you should see the list of topics from the sim here
 ```
