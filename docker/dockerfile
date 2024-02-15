@@ -22,7 +22,9 @@ RUN mkdir -p colcon_ws/src
 # use an arg to force docker to build from here, even with cache enabled.
 # useful to git pull every build!
 ARG DATE_STAMP
-RUN cd colcon_ws/src && git clone https://github.com/KKalem/smarc2
+# use --build-arg REPO=... to change where we'll pull from at build time.
+ARG REPO=smarc-project
+RUN cd colcon_ws/src && git clone https://github.com/${REPO}/smarc2
 
 # make colcon behave
 RUN mkdir /home/.colcon/ \
@@ -34,7 +36,9 @@ WORKDIR /home/colcon_ws/src/smarc2
 RUN scripts/get-submodules.sh external
 
 # get the latest compiled binary of the unity sim
-RUN scripts/get_latest_unity_standard.sh
+RUN mkdir simulation/binaries \
+&& cd simulation/binaries \
+&& ../../scripts/get_latest_unity_standard.sh
 
 # install deps
 WORKDIR /home/colcon_ws

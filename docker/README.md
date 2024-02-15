@@ -32,21 +32,14 @@ A container is an instance of an image. It does things, has files and such. Ther
 
 **Attach to a container that is alredy running:** `docker attach <container_name>`
 
-Example: Run bash in a container that is already started: `docker exec -it <container_name> /bin/bash`
+Examples:
+- Create a new container and run bash in it interactively: `docker run -it <container_name> /bin/bash`
+- Run bash in a container that is already started: `docker exec -it <container_name> /bin/bash`
+
+### Common problems
+- "When I do `docker start`, it quits right away."
+  - You did not give the container a command to run when you did `docker run`. This is usually the case when the entrypoint of the image is not a long-running (or interactive) program. If you used the `dockerfile` in this repo, then you should run `bash` at least. See example above.
 
 
-
-
-## WIP
-
-
-
-Auto-generated docs:
-1) Build from above
-2) Find bringups
-3) For each bringup:
-   1) Run bringup
-   2) Examine nodes
-   3) Make a list of node -> topics etc.
-   4) Write to file (in a graph format? Visualize?)
-
+### End to end example
+You can find an example of using docker with the sim with all the commands [here](../simulation/README.md).
