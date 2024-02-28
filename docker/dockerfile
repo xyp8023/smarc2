@@ -49,7 +49,8 @@ RUN rosdep update \
 RUN source /opt/ros/humble/setup.bash \
 &&  colcon build
 
-
+# copy the entrypoint script so it sources things for us...
+RUN cp ./src/smarc2/docker/ros_entrypoint.sh /
 
 # this sources the setup.bash by default
 ENTRYPOINT [ "/ros_entrypoint.sh" ] 
