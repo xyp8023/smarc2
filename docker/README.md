@@ -10,6 +10,7 @@ Using sudo all the time is annoying, follow [this guide](https://docs.docker.com
 ## Cheatsheet
 **Build image from dockerfile:** `docker build - -t <name>:<tag> < <path/to/dockerfile>`
 
+If you get errors about "IP not found" or similar, most likely docker is using its cache to skip `apt update`. 
 Add `--no-cache` to make it build from scratch.
 
 **Check your images:** `docker images`
