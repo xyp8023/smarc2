@@ -40,6 +40,43 @@ You might need to change this if you ever need multiple workspaces and don't wan
 
 You can also find this file [here](../docker/defaults.yaml)
 
+## Installing requirements
+Do the following steps in order on a clean ubuntu 22.04 system.
+
+### This repo and some of its submodules
+```bash
+mkdir colcon_ws/src
+cd colcon_ws/src
+git clone git@github.com:smarc-project/smarc2.git
+cd smarc2
+./scripts/get-submodules.sh external
+```
+
+### Colcon, rosdep, pip
+```bash
+apt install python3-colcon-ros python3-rosdep python3-pip
+sudo rosdep init
+rosdep update
+```
+
+### Dependencies of this repo
+```bash
+cd colcon_ws
+./src/smarc2/scripts/rosdep_install_from_src.sh
+```
+
+### Build
+```bash
+cd colcon_ws
+colcon build
+```
+
+### Add your workspace to bashrc
+```bash
+cd colcon_ws
+echo "/home/USERNAME/colcon_ws/install/setup.sh" >> ~/.bashrc
+```
+
 
 ## [Continue with porting](./Porting%20a%20package.md)
 
