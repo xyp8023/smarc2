@@ -44,6 +44,10 @@ Since this runs wihtout graphics, the only practical way to interact with the si
 To do so, run the [unity bridge node](../scripts/unity_ros_bridge.sh) in the same container/machine and check the topics as you would normally (probably in a third terminal).
 
 ### End to end docker example
+Note that what we do here is not exactly best practice, since we'll be running multiple things in one container. 
+However, this is easier to understand.
+Normally, you should run one program per container, and possibly use docker-compose to arrange them, network them etc.
+
 #### Terminal 1
 ```bash
 # get the repo, get in it

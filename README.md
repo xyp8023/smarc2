@@ -2,7 +2,11 @@
 This is the repository of packages for ROS Humble.
 Each of the following directories also include more detailed readmes within.
 
-Most of the dependendencies can be installed with rosdep: `rosdep install -i --from-path src --rosdistro humble -y --skip-keys="sam_* lolo_* smarc_*`, which you can also find as a script [in the scripts folder here](/scripts/rosdep_install_from_src.sh)
+## [Fresh install? Start here.](/documentation/Installing%20ROS2.md)
+[This document](/documentation/Installing%20ROS2.md) has step-by-step instructions to get things running.
+
+
+## Stuff in this repo
 
 > Add more directories as needed.
 >
@@ -15,16 +19,14 @@ Most of the dependendencies can be installed with rosdep: `rosdep install -i --f
 >   - It does not do anything until manually invoked. Like GUI stuff.
 
 
-
-
-## [Behaviours](/behaviours/)
+### [Behaviours](/behaviours/)
 High-level constructs like action servers and behaviour trees.
 These usually rely on many other packages to function.
 
-## [Docker](/docker/)
+### [Docker](/docker/)
 Docker-related stuff. Like dockerfiles and other such artifacts.
 
-## [Documentation](/documentation/)
+### [Documentation](/documentation/)
 A good starting point if you would like to start writing some code to run on a robot.
 Check [this basic tutorial on creating a package](./documentation/Making%20a%20new%20package.md) to start your journey into Ros Humble.
 
@@ -34,20 +36,20 @@ Tutorials and such also go here.
 
 Individual packages should have their own documentation in their readme files.
 
-## [Examples](/examples/)
+### [Examples](/examples/)
 Where example nodes and code go. These are not meant to be ran on a robot, and usually their performance is not the point.
 If you had to give a piece of code out more than once, it should live here.
 
-## [External](/external/)
+### [External](/external/)
 Packages that we have not developed ourlseves entirely, but rely on.
 Maybe with edits from us that are not available upstream.
 **Always check the license of the package you put here!**
 
-## [Gui](/gui/)
+### [Gui](/gui/)
 Packages related to external-to-robot control and monitoring. 
 Stuff like MQTT and node-red configurations.
 
-## [Messages](/messages/)
+### [Messages](/messages/)
 All ROS message, action and service definitions should live here.
 Put them in appropriate packages, like sam-hardware specific stuff in sam_msgs and so on.
 
@@ -55,27 +57,27 @@ Splitting messages into multiple packages depending on their use context is very
 If some messages are basically used only "internally", that set of messages should be in their own package here.
 An example would be "BT messages" that only the behaviour tree interacts with. Or "SLAM messages" used for communication between some slam-related nodes and nowhere else.
 
-## [Robot descriptions](/robot_descriptions/)
+### [Robot descriptions](/robot_descriptions/)
 URDF files and the accompanying models of individual robots.
 These are depended on by many packages and should require no dependencies.
 
 
-## [Sam](/sam/)
+### [Sam](/sam/)
 SAM's hardware-specific packages. 
 It is likely that these packages will not compile or run on anything but the real SAM hardware.
 **These should be set up as submodules.**
 
-## [Scripts](/scripts/)
+### [Scripts](/scripts/)
 Where scripts for ease-of-use are stored.
 
-## [Simulation](/simulation/)
+### [Simulation](/simulation/)
 This is where our simulation-related packages live.
 If something is required ONLY for the sim and not anywhere else, that thing should be in here.
 Similar to Sam, **these are submodules.**
 From the perspective of ROS, simulation is just another robot.
 
 
-## [Slam](/slam/)
+### [Slam](/slam/)
 Packages related to localization and mapping. 
 Probably could be split further within this folder.
 
