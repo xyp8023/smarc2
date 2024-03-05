@@ -86,8 +86,6 @@ At the very least, your readme should contain:
 - Parameters that matter
 - External stuff needed to compile/run
 
-> TODO(Ozer) automatic interface document generation
-
 
 
 
