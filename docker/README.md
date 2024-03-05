@@ -23,6 +23,10 @@ An image is a _description_ of what will exist in a container when it is run. Ba
 
 **Nuke a container:** `docker remove <container_name>`
 
+**Delete stopped containers**: `docker container prune`
+
+**Delete unused images**: `docker image prune`
+
 A container is an instance of an image. It does things, has files and such. There can be many containers from the same image that do not share anything except their initial state.
 
 * To give container a name: add `--name <name>` to `run`
@@ -31,7 +35,7 @@ A container is an instance of an image. It does things, has files and such. Ther
 
 **Start a container that was run before:** `docker start <container_name>`
 
-**Attach to a container that is alredy running:** `docker attach <container_name>`
+**Attach to a container that is already running:** `docker attach <container_name>`
 
 Examples:
 - Create a new container and run bash in it interactively: `docker run -it <container_name> /bin/bash`
@@ -40,7 +44,15 @@ Examples:
 ### Common problems
 - "When I do `docker start`, it quits right away."
   - You did not give the container a command to run when you did `docker run`. This is usually the case when the entrypoint of the image is not a long-running (or interactive) program. If you used the `dockerfile` in this repo, then you should run `bash` at least. See example above.
+- "Failed to create symbolic link ... because existing path cannot be removed: Is a directory" when `colcon build`-ing manually inside a container.
+  - Avoid doing so.
+  - If you have to: just remove the build, install, log folders inside colcon_ws
 
 
 ### End to end example
 You can find an example of using docker with the sim with all the commands [here](../simulation/README.md).
+
+## Connecting your host ros2 and dockerized ros2
+The Dockerfile we use sets `ROS_DOMAIN_ID=42` (so the containers do not by default mess with your system) so you need to tell your host system the same:
+- `export ROS_DOMAIN_ID=42` 
+- When building the container, use the build-args: `--build-arg UID=$(id -u) --build-arg GID=$(id -g) --build-arg USERNAME=$(whoami)`
