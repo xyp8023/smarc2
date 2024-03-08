@@ -1,5 +1,7 @@
 # sam_basic_controllers
 
+> **This readme and most things in this package are not updated to work with smarc2 beyond "it builds". Only use this as an example of package configuration and nothing else!**
+
 Package containing the basic controllers for trim, thrust vectoring and buoyancy systems for the SAM AUV using ROS-PID.
 
 To launch pid_manager, static trim and depth controllers, launch static_controllers.launch.
