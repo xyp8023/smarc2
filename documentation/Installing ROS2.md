@@ -15,7 +15,7 @@ Notice that ROS2 moved from catkin to colcon for its build process, and there ar
 
 
 
-### Step 0.5: Tame colcon
+### Optional Step 0.5: Tame colcon
 Colcon, unlike catkin, cares about your current directory when building, by default.
 This is a dumb default.
 Put in `~/.colcon/defaults.yaml` the following, with paths changed to fit your setup:

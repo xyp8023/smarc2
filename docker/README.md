@@ -4,8 +4,9 @@ We use docker containers to run tests and such.
 > Maybe we can use containers for all the nodes (or groups of them) as well?
 > ROS2 is p2p, so we could have "core" in a container, "slam" in one etc. 
 
-## Tame docker
-Using sudo all the time is annoying, follow [this guide](https://docs.docker.com/engine/install/linux-postinstall/)
+## (Optional) Tame docker
+Using sudo all the time is annoying, follow [this guide](https://docs.docker.com/engine/install/linux-postinstall/) to make docker commands sudo-d by default, without you needing to type it.
+This has security implications that you can read yourself in that link.
 
 ## Cheatsheet
 **Build image from dockerfile:** `docker build - -t <name>:<tag> < <path/to/dockerfile>`
@@ -53,6 +54,8 @@ Examples:
 You can find an example of using docker with the sim with all the commands [here](../simulation/README.md).
 
 ## Connecting your host ros2 and dockerized ros2
+(This assumes you are on a linux system)
+
 The Dockerfile we use sets `ROS_DOMAIN_ID=42` (so the containers do not by default mess with your system) so you need to tell your host system the same:
 - `export ROS_DOMAIN_ID=42`  on the host, on each terminal you want connected to the dockerized ros2 setup.
 - When building the container, use build-args like so: `docker build - -t smarc2/base --build-arg UID=$(id -u) --build-arg GID=$(id -g) --build-arg USERNAME=$(whoami)  < Dockerfile`. This makes it so that the container has the same user name, id, and group ids, which makes dockerized-ros2 use the same memory as the host user, which means nodes speak using shared memory = fast and 0 config required. [This script](./build-me-smarc2.sh) has this in it for repeated use~.
